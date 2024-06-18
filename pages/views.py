@@ -24,7 +24,7 @@ def fields(request, table_id):
             field = request.POST.get(str("fieldName" + str(i)))
             choices = request.POST.get(str("fieldChoices" + str(i)))
             Fields.objects.create(Field = field, Type = choices, Table_id = table_id, Order = i)
-            return redirect("table", table_id)
+        return redirect("tables", table_id)
     return render(request, "fields.html", context = {"numbers":numbers, "project_id": project_id})
 
 def tableSize(table_id):
